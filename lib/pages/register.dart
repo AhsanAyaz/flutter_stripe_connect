@@ -1,6 +1,8 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:sn_progress_dialog/progress_dialog.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_stripe_connect/services/stripe-backend-service.dart';
 
 class RegisterSeller extends StatefulWidget {
   @override
@@ -16,7 +18,6 @@ class _RegisterSellerState extends State<RegisterSeller> {
       ),
       body: Center(
         child: ElevatedButton(
-          // Within the SecondScreen widget
           onPressed: () async {
             ProgressDialog pd = ProgressDialog(context: context);
             pd.show(
@@ -25,9 +26,9 @@ class _RegisterSellerState extends State<RegisterSeller> {
               progressBgColor: Colors.transparent,
             );
             try {
-              Future.delayed(Duration(milliseconds: 2000), () {
-                pd.close();
-              });
+              CreateAccountResponse response = await StripeBackendService.createSellerAccount();
+              pd.close();
+              await canLaunch(response.url) ? await launch(response.url) : throw 'Could not launch URL';
             } catch (e) {
               log(e.toString());
               pd.close();
