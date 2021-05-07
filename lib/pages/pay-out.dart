@@ -101,8 +101,7 @@ class _PayOutState extends State<PayOut> {
   @override
   Widget build(BuildContext context) {
     final appState = Provider.of<AppState>(context, listen: false);
-//    String accountId = appState.accountId;
-    String accountId = 'dummy_1234';
+    String accountId = appState.accountId;
     return Scaffold(
       appBar: AppBar(
         title: Text("Pay as Customer"),

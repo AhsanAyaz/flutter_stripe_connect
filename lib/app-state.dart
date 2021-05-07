@@ -28,7 +28,7 @@ class AppState extends ChangeNotifier {
     _currentAction = action;
     notifyListeners();
   }
-  String _accountId = '';
+  String _accountId = 'dummy_1234';
   String get accountId => _accountId;
   set accountId(String id) {
     _accountId = id;
