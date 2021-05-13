@@ -42,6 +42,11 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
+  void goToRegisterSuccess() {
+    _currentAction = PageAction(state: PageState.addPage, page: registerSuccessPageConfig);
+    notifyListeners();
+  }
+
   void goToPayOut() {
     _currentAction = PageAction(state: PageState.addPage, page: payOutPageConfig);
     notifyListeners();

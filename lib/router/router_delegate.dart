@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_stripe_connect/app-state.dart';
 import 'package:flutter_stripe_connect/pages/home.dart';
 import 'package:flutter_stripe_connect/pages/pay-out.dart';
+import 'package:flutter_stripe_connect/pages/register-success.dart';
 import 'package:flutter_stripe_connect/pages/register.dart';
 import 'package:flutter_stripe_connect/router/pages_config.dart';
 import 'back_dispatcher.dart';
@@ -204,6 +205,15 @@ class AppRouterDelegate extends RouterDelegate<PageConfiguration>
           break;
         case 'pay-out':
           push(payOutPageConfig);
+          break;
+        case 'register-success':
+          registerSuccessPageConfig.extras = new Map<String, dynamic>();
+          registerSuccessPageConfig.extras['account_id'] = uri.queryParameters['account_id'];
+          _pages.add(MaterialPage(
+              child: RegisterSuccessPage(),
+              key: ValueKey(registerSuccessPageConfig.key),
+              name: registerSuccessPageConfig.path,
+              arguments: registerSuccessPageConfig));
           break;
       }
     }

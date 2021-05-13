@@ -17,6 +17,8 @@ class AppRouteParser extends RouteInformationParser<PageConfiguration> {
         return registerPageConfig;
       case PayOutPath:
         return payOutPageConfig;
+      case RegisterSuccessPath:
+        return registerSuccessPageConfig;
       default:
         return homePageConfig;
     }
@@ -31,6 +33,8 @@ class AppRouteParser extends RouteInformationParser<PageConfiguration> {
         return const RouteInformation(location: PayOutPath);
       case Pages.Home:
         return const RouteInformation(location: HomePath);
+      case Pages.RegisterSuccess:
+        return const RouteInformation(location: RegisterSuccessPath);
       default: return const RouteInformation(location: HomePath);
 
     }

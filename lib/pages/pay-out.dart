@@ -1,5 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:flutter_stripe_connect/pages/checkout.dart';
+import 'package:flutter_stripe_connect/services/stripe-backend-service.dart';
 import 'package:provider/provider.dart';
 import 'package:sn_progress_dialog/progress_dialog.dart';
 
@@ -83,8 +85,30 @@ class _PayOutState extends State<PayOut> {
                       progressBgColor: Colors.transparent,
                     );
                     try {
-                      Future.delayed(Duration(milliseconds: 2000), () {
-                        pd.close();
+                      CheckoutSessionResponse response = await StripeBackendService.payForProduct(products[i], accountId);
+                      pd.close();
+                      String sessionId = response.session['id'];
+                      Future.delayed(Duration(milliseconds: 300), () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (_) => CheckoutPage(sessionId: sessionId),
+                        ))
+                            .then((value) {
+                          if (value == 'success') {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                new SnackBar(
+                                  content: Text('Payment Successful'),
+                                  backgroundColor: Colors.green,
+                                )
+                            );
+                          } else if (value == 'cancel') {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                new SnackBar(
+                                  content: Text('Payment Failed or Cancelled'),
+                                  backgroundColor: Colors.red
+                                )
+                            );
+                          }
+                        });
                       });
                     } catch (e) {
                       log(e.toString());

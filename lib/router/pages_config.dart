@@ -3,8 +3,9 @@ import '../app-state.dart';
 const String RegisterPath = '/register';
 const String PayOutPath = '/pay-out';
 const String HomePath = '/home';
+const String RegisterSuccessPath = '/register-success';
 
-enum Pages { Register, PayOut, Home }
+enum Pages { Register, PayOut, Home, RegisterSuccess }
 
 class PageConfiguration {
   final String key;
@@ -32,3 +33,8 @@ PageConfiguration payOutPageConfig = PageConfiguration(
     currentPageAction: null);
 PageConfiguration homePageConfig = PageConfiguration(
     key: 'Home', path: HomePath, uiPage: Pages.Home, currentPageAction: null);
+PageConfiguration registerSuccessPageConfig = PageConfiguration(
+    key: 'RegisterSuccess',
+    path: RegisterSuccessPath,
+    uiPage: Pages.RegisterSuccess,
+    currentPageAction: null);
