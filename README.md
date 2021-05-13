@@ -1,6 +1,16 @@
 # Flutter Stripe Connect Demo Application
 
-A demo Flutter Marketplace Application with Stripe Connect
+Code for the Flutter Marketplace Application named **Panda Gums** used in the tutorial "Flutter Marketplace app with Stripe Connect".
+
+## Blog Posts / Articles:
+
+- [Flutter Marketplace app with Stripe Connect - Part 1](https://ahsanayaz.com/flutter-marketplace-app-with-stripe-connect-part-1/)
+- [Flutter Marketplace app with Stripe Connect - Part 2](https://ahsanayaz.com/flutter-marketplace-app-with-stripe-connect-part-2/)
+
+## Video Tutorials:
+
+- [Flutter Marketplace app with Stripe Connect - Part 1 - Configuring Stripe & Seller Onboarding](https://www.youtube.com/watch?v=R2Okg53lUv8)
+- Working on Part 2
 
 ## Getting Started
 
