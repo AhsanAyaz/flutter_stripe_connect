@@ -10,7 +10,7 @@ Code for the Flutter Marketplace Application named **Panda Gums** used in the tu
 ## Video Tutorials:
 
 - [Flutter Marketplace app with Stripe Connect - Part 1 - Configuring Stripe & Seller Onboarding](https://www.youtube.com/watch?v=R2Okg53lUv8)
-- Working on Part 2
+- [Flutter Marketplace app with Stripe Connect - Part 2 - Deeplinking & paying for productss](https://youtu.be/wj5ieFnm0e4)
 
 ## Getting Started
 
